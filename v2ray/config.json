@@ -1,0 +1,32 @@
+{
+    "log": {
+        "access": "/dev/stdout",
+        "error": "/dev/stderr",
+        "loglevel": "warning"
+    },
+    "inbound": {
+        "port": 12345,
+        "protocol": "vmess",
+        "settings": {
+            "clients": [
+                {
+                    "id": "77cfc806-0278-4bc8-bae4-ff314fc6a44d",
+                    "level": 1,
+                    "alterId": 32
+                }
+            ],
+            "default": {
+                "level": 1,
+                "alterId": 32
+            }
+        },
+        "streamSettings": {
+            "network": "ws",
+            "security": "none"
+        }
+    },
+    "outbound": {
+        "protocol": "freedom",
+        "settings": {}
+    }
+}
