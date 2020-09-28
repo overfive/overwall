@@ -12,11 +12,28 @@ services:
       VIRTUAL_PORT: "12345"
       HTTPS_METHOD: redirect
     env_file:
-      - ./.env
+      - ./.v2ray.env
     expose:
       - "12345"
     networks:
       proxy:
+  shadowsock:
+    image: teddysun/shadowsocks-libev:latest
+    container_name: shadowsocks
+    restart: always
+    volumes:
+      - /data/overwall/shadowsocks/:/etc/shadowsocks-libev
+    environment:
+      VIRTUAL_PORT: "443"
+      HTTPS_METHOD: redirect
+    env_file:
+      - ./.shadowsocks.env
+    expose:
+      - "443"
+      - "443/udp"
+    networks:
+      proxy:
+
 
 networks:
   proxy:
